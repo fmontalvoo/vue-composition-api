@@ -21,6 +21,11 @@ const routes = [
     name: 'counter',
     component: () => import('@/views/CounterView.vue')
   },
+  {
+    path: '/users',
+    name: 'users',
+    component: () => import('@/views/UsersView.vue')
+  },
 ]
 
 const router = createRouter({
