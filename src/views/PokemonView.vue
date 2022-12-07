@@ -14,7 +14,7 @@
 
 <script>
 import { watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, onBeforeRouteLeave } from 'vue-router'
 
 import usePokemon from '@/composables/usePokemon'
 
@@ -31,6 +31,11 @@ export default {
                 getPokemon(+newValue)
             }
         )
+
+        onBeforeRouteLeave(() => {
+            const response = confirm('¿Esta seguro de dejar la pagina?')
+            return response
+        })
 
         return {
             pokemon,
