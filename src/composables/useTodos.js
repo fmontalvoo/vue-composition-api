@@ -10,7 +10,8 @@ const useTodos = () => {
         currentTab,
         pending: computed(() => store.getters['pendingTodos']),
         todos: computed(() => store.getters['getTodosByStatus'](currentTab.value)),
-        onToggleTodo: (id) => store.commit('toggleTodoStatus', id)
+        onToggleTodo: (id) => store.commit('toggleTodoStatus', id),
+        onAddTodo: (description = '') => store.commit('addTodo', description),
     }
 }
 

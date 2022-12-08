@@ -3,15 +3,12 @@
         <div class="modal-container">
 
             <slot name="header">
-                <h1>Modal</h1>
             </slot>
 
             <slot name="body" :bodyContent="bodyContent">
-                <p>Contenido del modal</p>
             </slot>
 
             <slot name="footer">
-                <button>Cerrar</button>
             </slot>
 
         </div>
