@@ -5,7 +5,8 @@
     <router-link :to="{ name: 'counter' }">Counter</router-link> |
     <router-link :to="{ name: 'users' }">Users</router-link> |
     <router-link :to="{ name: 'search' }">Search</router-link> |
-    <router-link :to="{ name: 'todo-list' }">Todo List</router-link>
+    <router-link :to="{ name: 'todo-list' }">Todo List</router-link> |
+    <router-link :to="{ name: 'slots' }">Slots</router-link>
   </nav>
 
   <router-view v-slot="{ Component, route }">

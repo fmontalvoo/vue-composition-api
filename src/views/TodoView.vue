@@ -2,6 +2,8 @@
     <h2>Lista de tareas</h2>
     <h4>Pendientes: {{ pending.length }}</h4>
 
+    <button>Crear tarea</button>
+
     <hr>
 
     <button @click="currentTab = 'all'" :class="{ 'active': currentTab === 'all' }">Todos</button>
@@ -19,20 +21,22 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
-import { useStore } from 'vuex'
+import useTodos from '@/composables/useTodos'
 
 export default {
     setup() {
-        const store = useStore()
-
-        const currentTab = ref('all')
+        const {
+            currentTab,
+            pending,
+            todos,
+            onToggleTodo,
+        } = useTodos()
 
         return {
             currentTab,
-            pending: computed(() => store.getters['pendingTodos']),
-            todos: computed(() => store.getters['getTodosByStatus'](currentTab.value)),
-            onToggleTodo: (id) => store.commit('toggleTodoStatus', id)
+            pending,
+            todos,
+            onToggleTodo,
         }
     }
 }
