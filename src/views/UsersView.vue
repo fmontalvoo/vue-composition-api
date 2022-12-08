@@ -4,10 +4,10 @@
     <h2 class="error" v-if="(statusCode != 0)">¡Error!</h2>
 
     <div v-else>
-        <user-list-component :users="users" v-slot="{ user }">
-            <img :src="user.avatar" :alt="user.first_name">
-            <p><b>{{ user.first_name }} {{ user.last_name }}</b></p>
-            <p>{{ user.email }}</p>
+        <user-list-component :users="users" v-slot="{ avatar, first_name, last_name, email }">
+            <img :src="avatar" :alt="first_name">
+            <p><b>{{ first_name }} {{ last_name }}</b></p>
+            <p>{{ email }}</p>
         </user-list-component>
     </div>
 
