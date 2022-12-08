@@ -4,13 +4,11 @@
     <h2 class="error" v-if="(statusCode != 0)">¡Error!</h2>
 
     <div v-else>
-        <ul>
-            <li v-for="{ id, avatar, first_name, last_name, email } of users" :key="id">
-                <img :src="avatar" :alt="first_name">
-                <p><b>{{ first_name }} {{ last_name }}</b></p>
-                <p>{{ email }}</p>
-            </li>
-        </ul>
+        <user-list-component :users="users" v-slot="{ user }">
+            <img :src="user.avatar" :alt="user.first_name">
+            <p><b>{{ user.first_name }} {{ user.last_name }}</b></p>
+            <p>{{ user.email }}</p>
+        </user-list-component>
     </div>
 
     <div>
@@ -22,10 +20,13 @@
 
 <script>
 import useUsers from '@/composables/useUsers';
+import UserListComponent from '@/components/UserListComponent.vue';
 
 export default {
+    components: {
+        UserListComponent,
+    },
     setup() {
-
         const {
             users,
             isLoading,
